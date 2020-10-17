@@ -28,6 +28,6 @@ def copy_azure_files():
 
     for blob in list:
         source_blob = (f"https://{account_name}.blob.core.windows.net/{copy_from_container}/{blob.name}")
-        copied_blob = blob_service.get_blob_client(copy_to_container, blob.name)
-        copied_blob.start_copy_from_url(source_blob)
+        destination_blob = blob_service.get_blob_client(copy_to_container, blob.name)
+        destination_blob.start_copy_from_url(source_blob)
         print(blob.name)
